@@ -36,7 +36,7 @@ public class AppOrderTest {
         driver.findElement(cssSelector("[type='tel']")).sendKeys("+79990009900");
         driver.findElement(className("checkbox__box")).click();
         driver.findElement(className("button__text")).click();
-        assertTrue(driver.findElement(cssSelector("[data-test-id=\"order-success\"]")).isEnabled(),
+        assertTrue(!driver.findElements(cssSelector("[data-test-id=\"order-success\"]")).isEmpty(),
                 "Проверка валидных данных");
     }
 
@@ -47,7 +47,7 @@ public class AppOrderTest {
         driver.findElement(cssSelector("[type='tel']")).sendKeys("+79990009900");
         driver.findElement(className("checkbox__box")).click();
         driver.findElement(className("button__text")).click();
-        assertTrue(driver.findElement(cssSelector("[class=\"input input_type_text input_view_default input_size_m input_width_available input_has-label input_has-value input_invalid input_theme_alfa-on-white\"]")).isEnabled(),
+        assertTrue(!driver.findElements(cssSelector("[class=\"input input_type_text input_view_default input_size_m input_width_available input_has-label input_has-value input_invalid input_theme_alfa-on-white\"]")).isEmpty(),
                 "Проверка Латиницы");
     }
 
@@ -57,7 +57,7 @@ public class AppOrderTest {
         driver.findElement(cssSelector("[type='tel']")).sendKeys("+79990009900");
         driver.findElement(className("checkbox__box")).click();
         driver.findElement(className("button__text")).click();
-        assertTrue(driver.findElement(cssSelector("[class=\"input input_type_text input_view_default input_size_m input_width_available input_has-label input_invalid input_theme_alfa-on-white\"]")).isEnabled(),
+        assertTrue(!driver.findElements(cssSelector("[class=\"input input_type_text input_view_default input_size_m input_width_available input_has-label input_invalid input_theme_alfa-on-white\"]")).isEmpty(),
                 "Не вводим имя фамилию");
     }
 
@@ -68,7 +68,7 @@ public class AppOrderTest {
         driver.findElement(cssSelector("[type='tel']")).sendKeys("+79990009900");
         driver.findElement(className("checkbox__box")).click();
         driver.findElement(className("button__text")).click();
-        assertTrue(driver.findElement(cssSelector("[data-test-id=\"order-success\"]")).isEnabled(),
+        assertTrue(!driver.findElements(cssSelector("[data-test-id=\"order-success\"]")).isEmpty(),
                 "Воодим только имя");
     }
 
@@ -78,7 +78,7 @@ public class AppOrderTest {
         driver.findElement(cssSelector("[type='text']")).sendKeys("Радаев Иван");
         driver.findElement(className("checkbox__box")).click();
         driver.findElement(className("button__text")).click();
-        assertTrue(driver.findElement(cssSelector("[class=\"input input_type_tel input_view_default input_size_m input_width_available input_has-label input_invalid input_theme_alfa-on-white\"]")).isEnabled(),
+        assertTrue(!driver.findElements(cssSelector("[class=\"input input_type_tel input_view_default input_size_m input_width_available input_has-label input_invalid input_theme_alfa-on-white\"]")).isEmpty(),
                 "Не вводим телефон");
     }
 
@@ -86,7 +86,7 @@ public class AppOrderTest {
     void FormTest06() {
         driver.get("http://localhost:9999");
         driver.findElement(className("button__text")).click();
-        assertTrue(driver.findElement(cssSelector("[class=\"input input_type_text input_view_default input_size_m input_width_available input_has-label input_invalid input_theme_alfa-on-white\"]")).isEnabled(),
+        assertTrue(!driver.findElements(cssSelector("[class=\"input input_type_text input_view_default input_size_m input_width_available input_has-label input_invalid input_theme_alfa-on-white\"]")).isEmpty(),
                 "Отправка пустой формы");
     }
 
@@ -96,7 +96,7 @@ public class AppOrderTest {
         driver.findElement(cssSelector("[type='text']")).sendKeys("Радаев Иван");
         driver.findElement(cssSelector("[type='tel']")).sendKeys("+79990009900");
         driver.findElement(className("button__text")).click();
-        assertTrue(driver.findElement(cssSelector("[class=\"checkbox checkbox_size_m checkbox_theme_alfa-on-white input_invalid\"]")).isEnabled(),
+        assertTrue(!driver.findElements(cssSelector("[class=\"checkbox checkbox_size_m checkbox_theme_alfa-on-white input_invalid\"]")).isEmpty(),
                 "Не нажали галку");
     }
 }
